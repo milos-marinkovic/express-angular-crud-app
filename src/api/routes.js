@@ -5,16 +5,16 @@ function createRouter(db) {
   const owner = '';
 
   // Routes are defined here
-  router.get('/', (req, res, next) => {
+  router.get('/api/login', (req, res, next) => {
     db.query(
-      'SELECT * FROM users',
-      // [req.body.username, req.body.password],
-      (error, results) => {
+      'SELECT * FROM users WHERE username=? AND password=?;',
+      [req.query.username, req.query.password],
+      (error, data) => {
         if (error) {
           console.error("There has been an error: ", error);
-          res.status(500).json({status: 'error'});
+          res.status(500).json({status: 'error', msg: error});
         } else {
-          res.status(200).json({status: 'ok', results});
+          res.status(200).json({status: 'ok', data: data});
         }
       }
     )

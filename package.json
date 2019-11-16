@@ -4,7 +4,8 @@
   "description": "Basic CRUD app using Express and Angular8",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "echo \"Starting server script!\" && node src/index.js"
   },
   "author": "",
   "license": "ISC",
